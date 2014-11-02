@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2014.11.02.05.30.18;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Initial fstab commit.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+linprocfs		/usr/jail/debian/proc	linprocfs	rw	0	0
+linsysfs		/usr/jail/debian/sys	linsysfs	rw	0	0
+tmpfs			/usr/jail/debian/run	tmpfs		rw	0	0
+/RCS/usr/jail/debian	/usr/jail/debian/RCS	nullfs		rw	0	0
+@

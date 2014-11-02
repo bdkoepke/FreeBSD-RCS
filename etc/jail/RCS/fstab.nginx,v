@@ -1,0 +1,36 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2014.11.02.05.30.46;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Initial fstab commit.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jail/nginx/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jail/nginx/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jail/nginx/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jail/nginx	/usr/jail/nginx/RCS			nullfs	rw	0	0
+/storage/music		/usr/jail/nginx/storage/music		nullfs	ro	0	0
+/storage/photos		/usr/jail/nginx/storage/photos	nullfs	ro	0	0
+/storage/videos/lectures	/usr/jail/nginx/storage/videos/lectures		nullfs	ro	0	0
+/storage/videos/movies		/usr/jail/nginx/storage/videos/movies		nullfs	ro	0	0
+/storage/videos/tvshows		/usr/jail/nginx/storage/videos/tvshows		nullfs	ro	0	0
+/storage/videos/videography	/usr/jail/nginx/storage/videos/videography	nullfs	ro	0	0
+@

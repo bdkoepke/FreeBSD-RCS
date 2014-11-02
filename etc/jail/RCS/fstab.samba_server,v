@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2014.11.02.05.31.03;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Initial fstab commit.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jail/samba_server/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jail/samba_server/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jail/samba_server/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jail/samba_server	/usr/jail/samba_server/RCS		nullfs	rw	0	0
+/storage/backup		/usr/jail/samba_server/storage/backup		nullfs	rw	0	0
+/storage/public		/usr/jail/samba_server/storage/public		nullfs	rw	0	0
+@

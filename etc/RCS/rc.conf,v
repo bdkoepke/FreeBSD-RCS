@@ -1,9 +1,15 @@
-head	1.2;
+head	1.3;
 access;
 symbols;
-locks; strict;
+locks
+	root:1.3; strict;
 comment	@# @;
 
+
+1.3
+date	2014.11.02.05.33.18;	author root;	state Exp;
+branches;
+next	1.2;
 
 1.2
 date	2014.10.27.21.39.58;	author root;	state Exp;
@@ -21,31 +27,57 @@ desc
 @
 
 
-1.2
+1.3
 log
-@Added system services.
+@Jailed many services.
 @
 text
-@# Kernel settings
-dumpdev="AUTO" # Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
+@dumpdev="AUTO" # Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
 zfs_enable="YES"
 
 # Networking
 hostname="swordfish.pw"
 ifconfig_em0="DHCP"
+cloned_interfaces="bridge0"
+ifconfig_bridge0="addm em0 up"
+
+# System services
+accounting_enable="YES"
+auditd_enable="YES"
+ntpdate_enable="YES"
+powerd_enable="YES"
+sshd_enable="YES"
+
+jail_enable="YES"
+devfs_load_rulesets="YES"
+
+# Local services
+apcupsd_enable="YES"
+vboxheadless_enable="YES"
+@
+
+
+1.2
+log
+@Added system services.
+@
+text
+@a0 1
+# Kernel settings
+d7 2
+a8 5
 pf_enable="YES"
 pf_rules="/etc/pf.conf"
 pflog_enable="YES"
 pflog_logfile="/var/log/pflog"
 gateway_enable="YES"
-
-# System services
+d11 2
+a12 2
 apcupsd_enable="YES"
 ddclient_enable="YES"
-ntpdate_enable="YES"
-powerd_enable="YES"
+a14 1
 smartd_enable="YES"
-sshd_enable="YES"
+a15 7
 #hostapd_enable="YES"
 #ipfw_enable="YES"
 #kerberos_enable="YES"
@@ -53,10 +85,8 @@ sshd_enable="YES"
 #ncsd_enable="YES"
 #sendmail_enable="YES"
 #gssd_enable="YES"
-
-jail_enable="YES"
-devfs_load_rulesets="YES"
-
+d20 3
+a22 20
 # Listening services
 accounting_enable="YES"
 auditd_enable="YES"

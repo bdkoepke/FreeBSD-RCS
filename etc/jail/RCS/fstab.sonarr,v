@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2014.11.02.05.31.09;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Initial fstab commit.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jail/sonarr/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jail/sonarr/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jail/sonarr/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jail/sonarr	/usr/jail/sonarr/RCS			nullfs	rw	0	0
+proc			/usr/jail/sonarr/proc			procfs	rw	0	0
+/storage/videos/tvshows	/usr/jail/sonarr/storage/videos/tvshows	nullfs	rw	0	0
+/storage/downloads/complete/videos/tvshows	/usr/jail/sonarr/storage/downloads/complete/videos/tvshows	nullfs	rw	0	0
+@

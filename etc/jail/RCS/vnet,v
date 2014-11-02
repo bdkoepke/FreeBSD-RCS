@@ -1,0 +1,65 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2014.11.02.05.31.17;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Initial vnet script.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#!/bin/sh
+command=$1
+iface=$2
+bridge=$3
+
+if [ -z ${command} ] || [ -z ${iface} ]
+then
+	return 1
+fi
+if [ -z ${bridge} ]
+then
+	bridge="bridge0"
+	containsifaddr ${bridge} || return 1
+fi
+
+prestart() {
+	containsifaddr ${iface}a || {
+		ifconfig ${iface} create
+		ifconfig ${bridge} addm ${iface}a
+		ifconfig ${iface}a up
+	}
+}
+
+poststop() {
+	containsifaddr ${iface}a && {
+		ifconfig ${bridge} deletem ${iface}a
+		ifconfig ${iface}a destroy
+	}
+}
+
+case ${command} in
+	prestart)
+		prestart
+		;;
+	poststop)
+		poststop
+		;;
+	*)
+		return 1
+esac
+@

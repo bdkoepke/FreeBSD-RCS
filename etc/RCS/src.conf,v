@@ -1,0 +1,39 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2014.10.27.21.46.07;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2014.10.27.21.45.37;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Source configuration options.
+@
+
+
+1.2
+log
+@Disable X11.
+@
+text
+@WITHOUT_X11=yes
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+@

@@ -1,0 +1,99 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2014.10.27.21.39.58;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2014.10.27.21.39.20;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Runlevel configuration.
+@
+
+
+1.2
+log
+@Added system services.
+@
+text
+@# Kernel settings
+dumpdev="AUTO" # Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
+zfs_enable="YES"
+
+# Networking
+hostname="swordfish.pw"
+ifconfig_em0="DHCP"
+pf_enable="YES"
+pf_rules="/etc/pf.conf"
+pflog_enable="YES"
+pflog_logfile="/var/log/pflog"
+gateway_enable="YES"
+
+# System services
+apcupsd_enable="YES"
+ddclient_enable="YES"
+ntpdate_enable="YES"
+powerd_enable="YES"
+smartd_enable="YES"
+sshd_enable="YES"
+#hostapd_enable="YES"
+#ipfw_enable="YES"
+#kerberos_enable="YES"
+#kern_securelevel_enable="YES"
+#ncsd_enable="YES"
+#sendmail_enable="YES"
+#gssd_enable="YES"
+
+jail_enable="YES"
+devfs_load_rulesets="YES"
+
+# Listening services
+accounting_enable="YES"
+auditd_enable="YES"
+git_daemon_enable="YES"
+mdnsd_enable="YES"
+mysql_enable="YES"
+samba_server_enable="YES"
+
+# Web Services
+#headphones_enable="YES"
+#lazylibrarian_enable="YES"
+
+#couchpotato_enable="YES"
+#couchpotato_user="_couchpotato"
+
+nzbdrone_enable="YES"
+nzbdrone_data_dir="/usr/local/nzbdrone/.config/NzbDrone"
+nzbdrone_dir="/usr/local/nzbdrone"
+nzbdrone_group="_nzbdrone"
+nzbdrone_user="_nzbdrone"
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 6
+a6 1
+hostname="swordfish"
+d8 12
+d21 31
+a51 5
+ntpd_enable="YES"
+powerd_enable="YES"
+# Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
+dumpdev="AUTO"
+zfs_enable="YES"
+@

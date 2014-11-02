@@ -1,0 +1,40 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2014.10.27.21.51.41;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2014.10.27.21.51.03;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@BSD cron jobs.
+@
+
+
+1.2
+log
+@Smartd and ddclient.
+@
+text
+@daily_status_smart_devices="/dev/ada0 /dev/ada1 /dev/ada2 /dev/ada3 /dev/ada4 /dev/ada5 /dev/ada6 /dev/ada7"
+daily_ddclient_force_enable="YES"
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 2
+@

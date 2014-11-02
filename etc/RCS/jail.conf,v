@@ -1,0 +1,161 @@
+head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2014.10.27.21.36.33;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2014.10.27.21.35.26;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Jail configuration file.
+@
+
+
+1.2
+log
+@Added debian, gateway, freebsd, transmission, nzbget, nzbdrone, samba_server, postgresql, couchpotato, git_daemon, handbraked, headphones, lazylibrarian, musicbrainz, newznab, nginx.
+@
+text
+@path = /usr/jail/$name;
+host.hostname = $name.swordfish.pw;
+mount.devfs;
+devfs_ruleset = 4;
+exec.consolelog = /var/log/$name.console.log;
+exec.start = "/bin/sh /etc/rc";
+exec.stop = "/bin/sh /etc/rc.shutdown";
+
+debian {
+	mount.fstab = /etc/jail/fstab.$name;
+	vnet;
+	vnet.interface = epair0b;
+	exec.prestart = "/etc/jail/vnet prestart epair0";
+	exec.start = "/etc/init.d/rc 3";
+	exec.stop = "/etc/init.d/rc 0";
+	exec.poststop = "/etc/jail/vnet poststop epair0";
+}
+
+gateway {
+	vnet;
+	vnet.interface = epair1b;
+	exec.prestart = "/etc/jail/vnet prestart epair1";
+	exec.poststop = "/etc/jail/vnet poststop epair1";
+}
+
+freebsd {
+	vnet;
+	vnet.interface = epair15b;
+	exec.prestart = "/etc/jail/vnet prestart epair15";
+	exec.poststop = "/etc/jail/vnet poststop epair15";
+}
+
+transmission {
+	vnet;
+	vnet.interface = epair2b;
+	exec.prestart = "/etc/jail/vnet prestart epair2";
+	exec.poststop = "/etc/jail/vnet poststop epair2";
+}
+
+nzbget {
+	vnet;
+	vnet.interface = epair3b;
+	exec.prestart = "/etc/jail/vnet prestart epair3";
+	exec.poststop = "/etc/jail/vnet poststop epair3";
+}
+
+nzbdrone {
+	mount.fstab = /etc/jail/fstab.$name;
+	vnet;
+	vnet.interface = epair4b;
+	exec.prestart = "/etc/jail/vnet prestart epair4";
+	exec.poststop = "/etc/jail/vnet poststop epair4";
+}
+
+samba_server {
+	vnet;
+	vnet.interface = epair5b;
+	exec.prestart = "/etc/jail/vnet prestart epair5";
+	exec.poststop = "/etc/jail/vnet poststop epair5";
+}
+
+postgresql {
+	vnet;
+	vnet.interface = epair6b;
+	exec.prestart = "/etc/jail/vnet prestart epair6";
+	exec.poststop = "/etc/jail/vnet poststop epair6";
+}
+
+couchpotato {
+	vnet;
+	vnet.interface = epair7b;
+	exec.prestart = "/etc/jail/vnet prestart epair7";
+	exec.poststop = "/etc/jail/vnet poststop epair7";
+}
+
+git_daemon {
+	vnet;
+	vnet.interface = epair8b;
+	exec.prestart = "/etc/jail/vnet prestart epair8";
+	exec.poststop = "/etc/jail/vnet poststop epair8";
+}
+
+handbraked {
+	vnet;
+	vnet.interface = epair9b;
+	exec.prestart = "/etc/jail/vnet prestart epair9";
+	exec.poststop = "/etc/jail/vnet poststop epair9";
+}
+
+headphones {
+	vnet;
+	vnet.interface = epair10b;
+	exec.prestart = "/etc/jail/vnet prestart epair10";
+	exec.poststop = "/etc/jail/vnet poststop epair10";
+}
+
+lazylibrarian {
+	vnet;
+	vnet.interface = epair11b;
+	exec.prestart = "/etc/jail/vnet prestart epair11";
+	exec.poststop = "/etc/jail/vnet poststop epair11";
+}
+
+musicbrainz {
+	vnet;
+	vnet.interface = epair12b;
+	exec.prestart = "/etc/jail/vnet prestart epair12";
+	exec.poststop = "/etc/jail/vnet poststop epair12";
+}
+
+newznab {
+	vnet;
+	vnet.interface = epair13b;
+	exec.prestart = "/etc/jail/vnet prestart epair13";
+	exec.poststop = "/etc/jail/vnet poststop epair13";
+}
+
+nginx {
+	vnet;
+	vnet.interface = epair14b;
+	exec.prestart = "/etc/jail/vnet prestart epair14";
+	exec.poststop = "/etc/jail/vnet poststop epair14";
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 123
+@

@@ -1,0 +1,60 @@
+head	1.3;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2014.11.01.20.40.20;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2014.10.27.22.13.26;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2014.10.27.22.12.48;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Add virtual network stacks.
+@
+
+
+1.3
+log
+@Added netgraph support.
+@
+text
+@include GENERIC
+ident VIMAGE
+
+# Virtual networking for jail
+options		VIMAGE
+device		epair
+device		if_bridge
+device		netgraph
+@
+
+
+1.2
+log
+@Added epair, if_bridge and VIMAGE.
+@
+text
+@d8 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 7
+@

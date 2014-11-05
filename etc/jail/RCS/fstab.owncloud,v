@@ -1,10 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
-locks
-	root:1.1; strict;
+locks; strict;
 comment	@# @;
 
+
+1.2
+date	2014.11.05.03.49.01;	author root;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2014.11.02.05.30.50;	author root;	state Exp;
@@ -17,12 +21,34 @@ desc
 @
 
 
+1.2
+log
+@Renamed /usr/jail to /usr/jails.
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jails/owncloud/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jails/owncloud/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jails/owncloud/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jails/owncloud	/usr/jails/owncloud/RCS			nullfs	rw	0	0
+/storage/books		/usr/jails/owncloud/storage/books	nullfs	rw	0	0
+/storage/music		/usr/jails/owncloud/storage/music	nullfs	rw	0	0
+/storage/photos		/usr/jails/owncloud/storage/photos	nullfs	rw	0	0
+/storage/public		/usr/jails/owncloud/storage/public	nullfs	rw	0	0
+/storage/videos/lectures	/usr/jails/owncloud/storage/videos/lectures	nullfs	rw	0	0
+/storage/videos/movies		/usr/jails/owncloud/storage/videos/movies	nullfs	rw	0	0
+/storage/videos/tvshows		/usr/jails/owncloud/storage/videos/tvshows	nullfs	rw	0	0
+/storage/videos/videography	/usr/jails/owncloud/storage/videos/videography	nullfs	rw	0	0
+@
+
+
 1.1
 log
 @Initial revision
 @
 text
-@# Device		Mountpoint	FStype	Options		Dump	Pass#
+@d2 12
+a13 12
 /usr/ports		/usr/jail/owncloud/usr/ports		nullfs	ro	0	0
 /usr/ports/distfiles	/usr/jail/owncloud/usr/ports/distfiles	nullfs	rw	0	0
 /usr/ports/packages	/usr/jail/owncloud/usr/ports/packages	nullfs	rw	0	0

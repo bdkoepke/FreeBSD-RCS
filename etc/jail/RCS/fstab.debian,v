@@ -1,10 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
-locks
-	root:1.1; strict;
+locks; strict;
 comment	@# @;
 
+
+1.2
+date	2014.11.05.03.49.01;	author root;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2014.11.02.05.30.18;	author root;	state Exp;
@@ -17,12 +21,26 @@ desc
 @
 
 
+1.2
+log
+@Renamed /usr/jail to /usr/jails.
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+linprocfs		/usr/jails/debian/proc	linprocfs	rw	0	0
+linsysfs		/usr/jails/debian/sys	linsysfs	rw	0	0
+tmpfs			/usr/jails/debian/run	tmpfs		rw	0	0
+/RCS/usr/jails/debian	/usr/jails/debian/RCS	nullfs		rw	0	0
+@
+
+
 1.1
 log
 @Initial revision
 @
 text
-@# Device		Mountpoint	FStype	Options		Dump	Pass#
+@d2 4
+a5 4
 linprocfs		/usr/jail/debian/proc	linprocfs	rw	0	0
 linsysfs		/usr/jail/debian/sys	linsysfs	rw	0	0
 tmpfs			/usr/jail/debian/run	tmpfs		rw	0	0

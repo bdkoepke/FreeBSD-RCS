@@ -1,10 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
-locks
-	root:1.1; strict;
+locks; strict;
 comment	@# @;
 
+
+1.2
+date	2014.11.05.03.49.01;	author root;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2014.11.02.05.30.48;	author root;	state Exp;
@@ -17,12 +21,27 @@ desc
 @
 
 
+1.2
+log
+@Renamed /usr/jail to /usr/jails.
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jails/nzbget/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jails/nzbget/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jails/nzbget/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jails/nzbget	/usr/jails/nzbget/RCS			nullfs	rw	0	0
+/storage/downloads	/usr/jails/nzbget/storage/downloads	nullfs	rw	0	0
+@
+
+
 1.1
 log
 @Initial revision
 @
 text
-@# Device		Mountpoint	FStype	Options		Dump	Pass#
+@d2 5
+a6 5
 /usr/ports		/usr/jail/nzbget/usr/ports		nullfs	ro	0	0
 /usr/ports/distfiles	/usr/jail/nzbget/usr/ports/distfiles	nullfs	rw	0	0
 /usr/ports/packages	/usr/jail/nzbget/usr/ports/packages	nullfs	rw	0	0

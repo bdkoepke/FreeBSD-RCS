@@ -1,10 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
-locks
-	root:1.1; strict;
+locks; strict;
 comment	@# @;
 
+
+1.2
+date	2014.11.05.03.49.01;	author root;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2014.11.02.05.30.46;	author root;	state Exp;
@@ -17,12 +21,32 @@ desc
 @
 
 
+1.2
+log
+@Renamed /usr/jail to /usr/jails.
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jails/nginx/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jails/nginx/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jails/nginx/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jails/nginx	/usr/jails/nginx/RCS			nullfs	rw	0	0
+/storage/music		/usr/jails/nginx/storage/music		nullfs	ro	0	0
+/storage/photos		/usr/jails/nginx/storage/photos	nullfs	ro	0	0
+/storage/videos/lectures	/usr/jails/nginx/storage/videos/lectures		nullfs	ro	0	0
+/storage/videos/movies		/usr/jails/nginx/storage/videos/movies		nullfs	ro	0	0
+/storage/videos/tvshows		/usr/jails/nginx/storage/videos/tvshows		nullfs	ro	0	0
+/storage/videos/videography	/usr/jails/nginx/storage/videos/videography	nullfs	ro	0	0
+@
+
+
 1.1
 log
 @Initial revision
 @
 text
-@# Device		Mountpoint	FStype	Options		Dump	Pass#
+@d2 10
+a11 10
 /usr/ports		/usr/jail/nginx/usr/ports		nullfs	ro	0	0
 /usr/ports/distfiles	/usr/jail/nginx/usr/ports/distfiles	nullfs	rw	0	0
 /usr/ports/packages	/usr/jail/nginx/usr/ports/packages	nullfs	rw	0	0

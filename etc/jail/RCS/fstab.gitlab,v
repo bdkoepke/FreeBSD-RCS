@@ -1,0 +1,29 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2014.11.05.03.49.01;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Renamed /usr/jail to /usr/jails.
+@
+
+
+1.1
+log
+@Renamed /usr/jail to /usr/jails.
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jails/gitlab/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jails/gitlab/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jails/gitlab/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jails/gitlab	/usr/jails/gitlab/RCS			nullfs	rw	0	0
+@

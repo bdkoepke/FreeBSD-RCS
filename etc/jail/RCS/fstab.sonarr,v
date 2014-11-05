@@ -1,10 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
-locks
-	root:1.1; strict;
+locks; strict;
 comment	@# @;
 
+
+1.2
+date	2014.11.05.03.49.01;	author root;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2014.11.02.05.31.09;	author root;	state Exp;
@@ -17,12 +21,29 @@ desc
 @
 
 
+1.2
+log
+@Renamed /usr/jail to /usr/jails.
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jails/sonarr/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jails/sonarr/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jails/sonarr/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jails/sonarr	/usr/jails/sonarr/RCS			nullfs	rw	0	0
+proc			/usr/jails/sonarr/proc			procfs	rw	0	0
+/storage/videos/tvshows	/usr/jails/sonarr/storage/videos/tvshows	nullfs	rw	0	0
+/storage/downloads/complete/videos/tvshows	/usr/jails/sonarr/storage/downloads/complete/videos/tvshows	nullfs	rw	0	0
+@
+
+
 1.1
 log
 @Initial revision
 @
 text
-@# Device		Mountpoint	FStype	Options		Dump	Pass#
+@d2 7
+a8 7
 /usr/ports		/usr/jail/sonarr/usr/ports		nullfs	ro	0	0
 /usr/ports/distfiles	/usr/jail/sonarr/usr/ports/distfiles	nullfs	rw	0	0
 /usr/ports/packages	/usr/jail/sonarr/usr/ports/packages	nullfs	rw	0	0

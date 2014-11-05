@@ -1,10 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
-locks
-	root:1.1; strict;
+locks; strict;
 comment	@# @;
 
+
+1.2
+date	2014.11.05.03.49.01;	author root;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2014.11.02.05.30.25;	author root;	state Exp;
@@ -17,12 +21,26 @@ desc
 @
 
 
+1.2
+log
+@Renamed /usr/jail to /usr/jails.
+@
+text
+@# Device		Mountpoint	FStype	Options		Dump	Pass#
+/usr/ports		/usr/jails/freebsd_lamp/usr/ports		nullfs	ro	0	0
+/usr/ports/distfiles	/usr/jails/freebsd_lamp/usr/ports/distfiles	nullfs	rw	0	0
+/usr/ports/packages	/usr/jails/freebsd_lamp/usr/ports/packages	nullfs	rw	0	0
+/RCS/usr/jails/freebsd_lamp	/usr/jails/freebsd_lamp/RCS			nullfs	rw	0	0
+@
+
+
 1.1
 log
 @Initial revision
 @
 text
-@# Device		Mountpoint	FStype	Options		Dump	Pass#
+@d2 4
+a5 4
 /usr/ports		/usr/jail/freebsd_lamp/usr/ports		nullfs	ro	0	0
 /usr/ports/distfiles	/usr/jail/freebsd_lamp/usr/ports/distfiles	nullfs	rw	0	0
 /usr/ports/packages	/usr/jail/freebsd_lamp/usr/ports/packages	nullfs	rw	0	0

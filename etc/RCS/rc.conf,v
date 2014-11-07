@@ -1,10 +1,14 @@
-head	1.3;
+head	1.4;
 access;
 symbols;
-locks
-	root:1.3; strict;
+locks; strict;
 comment	@# @;
 
+
+1.4
+date	2014.11.07.05.28.53;	author root;	state Exp;
+branches;
+next	1.3;
 
 1.3
 date	2014.11.02.05.33.18;	author root;	state Exp;
@@ -27,9 +31,9 @@ desc
 @
 
 
-1.3
+1.4
 log
-@Jailed many services.
+@Added virtualbox.
 @
 text
 @dumpdev="AUTO" # Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
@@ -53,7 +57,21 @@ devfs_load_rulesets="YES"
 
 # Local services
 apcupsd_enable="YES"
+
+# VirtualBox
 vboxheadless_enable="YES"
+vboxnet_enable="YES"
+vboxwatchdog_enable="YES"
+@
+
+
+1.3
+log
+@Jailed many services.
+@
+text
+@d22 2
+d25 2
 @
 
 

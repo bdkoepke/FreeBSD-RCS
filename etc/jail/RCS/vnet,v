@@ -1,10 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
-locks
-	root:1.1; strict;
+locks; strict;
 comment	@# @;
 
+
+1.2
+date	2014.11.05.23.07.02;	author root;	state Exp;
+branches;
+next	1.1;
 
 1.1
 date	2014.11.02.05.31.17;	author root;	state Exp;
@@ -17,38 +21,53 @@ desc
 @
 
 
-1.1
+1.2
 log
-@Initial revision
+@Updated with vnet renaming.
 @
 text
 @#!/bin/sh
 command=$1
-iface=$2
+jid=$2
 bridge=$3
+vnet=$4
+vnetj=$5
 
-if [ -z ${command} ] || [ -z ${iface} ]
+if [ -z ${command} ] || [ -z ${jid} ]
 then
 	return 1
 fi
 if [ -z ${bridge} ]
 then
 	bridge="bridge0"
-	containsifaddr ${bridge} || return 1
+	containsiface ${bridge} || return 1
 fi
+if [ -z ${vnet} ]
+then
+	vnet="vnet0"
+fi
+if [ -z ${vnetj} ]
+then
+	vnetj="${vnet}j"
+fi
+iface=${vnet}:${jid}
+ifacej=${vnet}j:${jid}
 
 prestart() {
-	containsifaddr ${iface}a || {
-		ifconfig ${iface} create
-		ifconfig ${bridge} addm ${iface}a
-		ifconfig ${iface}a up
+	containsiface ${iface} || {
+		epair=$(ifconfig epair create)
+		epair=${epair%?}
+		ifconfig ${epair}a name ${iface}
+		ifconfig ${epair}b name ${ifacej}
+		ifconfig ${bridge} addm ${iface}
+		ifconfig ${iface} up
 	}
 }
 
 poststop() {
-	containsifaddr ${iface}a && {
-		ifconfig ${bridge} deletem ${iface}a
-		ifconfig ${iface}a destroy
+	containsiface ${iface} && {
+		ifconfig ${bridge} deletem ${iface}
+		ifconfig ${iface} destroy
 	}
 }
 
@@ -62,4 +81,34 @@ case ${command} in
 	*)
 		return 1
 esac
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+iface=$2
+d5 2
+d8 1
+a8 1
+if [ -z ${command} ] || [ -z ${iface} ]
+d15 1
+a15 1
+	containsifaddr ${bridge} || return 1
+d17 10
+d29 7
+a35 4
+	containsifaddr ${iface}a || {
+		ifconfig ${iface} create
+		ifconfig ${bridge} addm ${iface}a
+		ifconfig ${iface}a up
+d40 3
+a42 3
+	containsifaddr ${iface}a && {
+		ifconfig ${bridge} deletem ${iface}a
+		ifconfig ${iface}a destroy
 @

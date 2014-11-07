@@ -1,10 +1,15 @@
-head	1.3;
+head	1.4;
 access;
 symbols;
 locks
-	root:1.3; strict;
+	root:1.4; strict;
 comment	@# @;
 
+
+1.4
+date	2014.11.05.23.10.42;	author root;	state Exp;
+branches;
+next	1.3;
 
 1.3
 date	2014.11.02.05.34.09;	author root;	state Exp;
@@ -27,19 +32,67 @@ desc
 @
 
 
+1.4
+log
+@Greatly simplified jail.conf vnet config.
+@
+text
+@path = /usr/jails/$name;
+host.hostname = $name.swordfish.pw;
+mount.fstab = /etc/jail/fstab.$name;
+
+devfs_ruleset = 4;
+mount.devfs;
+
+vnet;
+vnet.interface = vnet0j:$jid;
+
+exec.clean;
+exec.consolelog = /var/log/$name.console.log;
+exec.prestart = "/etc/jail/vnet prestart $jid";
+exec.start = "ifconfig vnet0j:$jid name vnet0";
+exec.start += "ifconfig vnet0 192.168.1.${jid}/24 up";
+exec.start += "route add default 192.168.1.254";
+exec.start += "/bin/sh /etc/rc";
+exec.stop = "/bin/sh /etc/rc.shutdown";
+exec.poststop = "/etc/jail/vnet poststop $jid";
+
+freebsd{ jid = 2; }
+nginx{ jid = 14; }
+nzbget{ jid = 4; }
+sonarr{ jid = 9; }
+transmission{ jid = 6; }
+
+smartd {
+	jid = 7;
+	devfs_ruleset = 6;
+}
+hostapd {
+	jid = 8;
+	vnet.interface += run0;
+	devfs_ruleset = 6;
+}
+@
+
+
 1.3
 log
 @Added many new jails.
 @
 text
-@path = /usr/jail/$name;
-host.hostname = $name.swordfish.pw;
-mount.devfs;
+@d1 1
+a1 1
+path = /usr/jail/$name;
+d3 3
+d7 5
+a11 1
 devfs_ruleset = 4;
-exec.consolelog = /var/log/$name.console.log;
+d13 5
+a17 1
 exec.start = "/bin/sh /etc/rc";
-exec.stop = "/bin/sh /etc/rc.shutdown";
-
+d19 1
+d21 5
+a25 145
 debian {
 	mount.fstab = /etc/jail/fstab.$name;
 	vnet;
@@ -185,14 +238,15 @@ rainloop {
 	exec.prestart = "/etc/jail/vnet prestart epair17";
 	exec.poststop = "/etc/jail/vnet poststop epair17";
 }
-
-smartd {
+d28 2
+a29 5
 	mount.fstab = /etc/jail/fstab.$name;
 	vnet;
 	vnet.interface = epair18b;
 	exec.prestart = "/etc/jail/vnet prestart epair18";
 	exec.poststop = "/etc/jail/vnet poststop epair18";
-}
+d31 4
+a34 15
 
 ddclient {
 	mount.fstab = /etc/jail/fstab.$name;
@@ -208,7 +262,6 @@ freebsd_lamp {
 	vnet.interface = epair20b;
 	exec.prestart = "/etc/jail/vnet prestart epair20";
 	exec.poststop = "/etc/jail/vnet poststop epair23";
-}
 @
 
 

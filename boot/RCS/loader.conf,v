@@ -1,9 +1,14 @@
-head	1.2;
+head	1.3;
 access;
 symbols;
 locks; strict;
 comment	@# @;
 
+
+1.3
+date	2014.11.07.05.13.39;	author root;	state Exp;
+branches;
+next	1.2;
 
 1.2
 date	2014.10.27.21.55.35;	author root;	state Exp;
@@ -21,9 +26,9 @@ desc
 @
 
 
-1.2
+1.3
 log
-@Added visible passphrase on boot.
+@Added vboxdrv support.
 @
 text
 @geli_ada0p4_keyfile0_load="YES"
@@ -59,6 +64,16 @@ zpool_cache_type="/boot/zfs/zpool.cache"
 zpool_cache_name="/boot/zfs/zpool.cache"
 kern.geom.eli.visible_passphrase=2
 pty_load="YES"
+vboxdrv_load="YES"
+@
+
+
+1.2
+log
+@Added visible passphrase on boot.
+@
+text
+@d34 1
 @
 
 

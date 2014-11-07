@@ -1,10 +1,14 @@
-head	1.2;
+head	1.3;
 access;
 symbols;
-locks
-	root:1.2; strict;
+locks; strict;
 comment	@# @;
 
+
+1.3
+date	2014.11.06.22.34.57;	author root;	state Exp;
+branches;
+next	1.2;
 
 1.2
 date	2014.11.02.07.06.26;	author root;	state Exp;
@@ -22,9 +26,9 @@ desc
 @
 
 
-1.2
+1.3
 log
-@Added smartd support.
+@Added full unhide rule.
 @
 text
 @#
@@ -115,7 +119,10 @@ add include $devfsrules_unhide_basic
 add include $devfsrules_unhide_login
 add path zfs unhide
 
-[devfsrules_smartd=5]
+[devfsrules_bpf=5]
+add path bpf unhide
+
+[devfsrules_geom=6]
 add path 'ada0' unhide
 add path 'ada1' unhide
 add path 'ada2' unhide
@@ -124,6 +131,21 @@ add path 'ada4' unhide
 add path 'ada5' unhide
 add path 'ada6' unhide
 add path 'ada7' unhide
+
+[devfsrules_unhide=7]
+add unhide
+@
+
+
+1.2
+log
+@Added smartd support.
+@
+text
+@d89 4
+a92 1
+[devfsrules_smartd=5]
+d101 3
 @
 
 
